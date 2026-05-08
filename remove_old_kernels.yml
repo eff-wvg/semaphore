@@ -1,0 +1,8 @@
+- name: Remove old kernels on Debian/Ubuntu
+  hosts: all
+  become: yes
+  tasks:
+    - name: Autoremove unused packages (including old kernels)
+      ansible.builtin.apt:
+        autoremove: yes
+        purge: yes
